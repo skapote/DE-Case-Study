@@ -18,7 +18,7 @@ This document provides a comprehensive overview of the solution for the DE Case 
 
 Project Structure:
 
-
+```bash
 DE_project/
 ├── dbt_project.yml
 ├── models/
@@ -65,7 +65,7 @@ DE_project/
     ├── charges_1.csv
     ├── datapoints_2.csv
     └── charges_2.csv
-
+```
 
 Setup Instructions:
 
