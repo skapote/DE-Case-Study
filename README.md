@@ -1,5 +1,6 @@
 # DE-Case-Study
 
+
 **Table of Contents:**
 
 ```bash
@@ -13,9 +14,12 @@ Optional Tasks
 Conclusion
 ```
 
+
 **Introduction:**
 
 This document provides a comprehensive overview of the solution for the DE Case Study. The primary objectives are to load initial data from files into a database, create daily regional aggregated prices using DBT, and implement enhancements including metadata coverage and handling exchange rates.
+
+
 
 **Project Structure:**
 
@@ -68,7 +72,10 @@ DE_project/
     └── charges_2.csv
 ```
 
+
 **Setup Instructions:**
+
+
 
 
 **Prerequisites:**
@@ -78,7 +85,11 @@ DBT
 DuckDB
 
 
+
+
 **Installation:**
+
+
 
 
 **Clone the repository:**
@@ -109,9 +120,13 @@ dbt run
 dbt test
 
 
+
+
 **Data Loading:**
 
 The initial data is loaded from CSV files located in the input_files/ directory. The raw data models in the models/raw/ directory define the structure and content of these initial datasets.
+
+
 
 
 **Data Transformation:**
@@ -125,6 +140,7 @@ The transformation is divided into stages:
 
 
 
+
 **Enhancements:**
 
 
@@ -133,9 +149,11 @@ The transformation is divided into stages:
 To track the metadata coverage, the pre_hook.sql and post_hook.sql files insert records into the metadata_coverage table before and after the main data transformation.
 
 
+
 **Handling Exchange Rates:**
 
 In real world scenarios, exchange rates can fluctuate daily, and we might not have all the rates available beforehand. To handle this, we can create a model to interpolate missing exchange rates and ensure consistent conversion of monetary values to a common currency (USD).
+
 
 
 **Interpolating Exchange Rates:**
@@ -143,9 +161,11 @@ In real world scenarios, exchange rates can fluctuate daily, and we might not ha
 The interpolated_exchange_rates.sql script interpolates missing exchange rates by carrying forward the last known rate. This ensures that every day has an exchange rate, which can be used for consistent conversion of charges.
 
 
+
 **Converting Charges to USD:**
 
 The final_prices.sql script converts charges to USD using the interpolated exchange rates and calculates the average and median prices for each contract.
+
 
 
 **Data Quality Check:**
@@ -153,6 +173,8 @@ The final_prices.sql script converts charges to USD using the interpolated excha
 The final_dq_check.sql script performs a data quality check to ensure that each contract has sufficient data coverage, such as having at least 5 companies and 2 suppliers.
 
 Note- Handling future exchange rates introduces complexity in ensuring data consistency and requires robust ETL processes to manage daily updates and interpolations effectively. For this, we will have to set up the pipeline in such a way.
+
+
 
 
 **Conclusion:**
