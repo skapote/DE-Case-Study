@@ -1,0 +1,21 @@
+
+name: DE_project
+version: '1.0'
+profile: DE_project
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+model-paths: ["models"]
+
+models:
+  DE_project:
+    raw:
+      materialized: view
+    staging:
+      materialized: view
+    final:
+      materialized: table
+      +pre-hook: "{{ ref('pre_hook') }}"
+      +post-hook: "{{ ref('post_hook') }}"

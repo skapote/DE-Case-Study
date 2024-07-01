@@ -1,0 +1,2 @@
+dbt-duckdb==1.7.5
+duckdb==0.10.3
