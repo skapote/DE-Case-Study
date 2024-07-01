@@ -2,6 +2,7 @@
 
 **Table of Contents:**
 
+```bash
 Introduction
 Project Structure
 Setup Instructions
@@ -10,7 +11,7 @@ Data Transformation
 Enhancements
 Optional Tasks
 Conclusion
-
+```
 
 **Introduction:**
 
