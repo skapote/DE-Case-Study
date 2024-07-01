@@ -1,6 +1,6 @@
 # DE-Case-Study
 
-Table of Contents:
+**Table of Contents:**
 
 Introduction
 Project Structure
@@ -12,11 +12,11 @@ Optional Tasks
 Conclusion
 
 
-Introduction:
+**Introduction:**
 
 This document provides a comprehensive overview of the solution for the DE Case Study. The primary objectives are to load initial data from files into a database, create daily regional aggregated prices using DBT, and implement enhancements including metadata coverage and handling exchange rates.
 
-Project Structure:
+**Project Structure:**
 
 ```bash
 DE_project/
@@ -67,93 +67,93 @@ DE_project/
     └── charges_2.csv
 ```
 
-Setup Instructions:
+**Setup Instructions:**
 
 
-Prerequisites:
+**Prerequisites:**
 
 Python 3.8+
 DBT
 DuckDB
 
 
-Installation:
+**Installation:**
 
 
-Clone the repository:
+**Clone the repository:**
 
 git clone https://github.com/DE-Case-Study.git
 cd DE-Case-Study
 
 
-Create a virtual environment:
+**Create a virtual environment:**
 
 python -m venv venv
 source venv/bin/activate
 
 
-Install the required packages:
+**Install the required packages:**
 
 pip install -r requirements.txt
 
 
-Set up DBT profile:
+**Set up DBT profile:**
 
 Update the profiles.yml file.
 
 
-Run DBT commands:
+**Run DBT commands:**
 
 dbt run
 dbt test
 
 
-Data Loading:
+**Data Loading:**
 
 The initial data is loaded from CSV files located in the input_files/ directory. The raw data models in the models/raw/ directory define the structure and content of these initial datasets.
 
 
-Data Transformation:
+**Data Transformation:**
 
 The data transformation process is defined using DBT models. 
 The transformation is divided into stages:
 
-Raw Layer: This layer loads the raw data from the source files.
-Staging Layer: This layer cleans and transforms the raw data.
-Final Layer: This layer aggregates the data to create the final tables used for analysis.
+**Raw Layer**: This layer loads the raw data from the source files.
+**Staging Layer**: This layer cleans and transforms the raw data.
+**Final Layer**: This layer aggregates the data to create the final tables used for analysis.
 
 
 
-Enhancements:
+**Enhancements:**
 
 
-Metadata Coverage:
+**Metadata Coverage:**
 
 To track the metadata coverage, the pre_hook.sql and post_hook.sql files insert records into the metadata_coverage table before and after the main data transformation.
 
 
-Handling Exchange Rates:
+**Handling Exchange Rates:**
 
 In real world scenarios, exchange rates can fluctuate daily, and we might not have all the rates available beforehand. To handle this, we can create a model to interpolate missing exchange rates and ensure consistent conversion of monetary values to a common currency (USD).
 
 
-Interpolating Exchange Rates:
+**Interpolating Exchange Rates:**
 
 The interpolated_exchange_rates.sql script interpolates missing exchange rates by carrying forward the last known rate. This ensures that every day has an exchange rate, which can be used for consistent conversion of charges.
 
 
-Converting Charges to USD:
+**Converting Charges to USD:**
 
 The final_prices.sql script converts charges to USD using the interpolated exchange rates and calculates the average and median prices for each contract.
 
 
-Data Quality Check:
+**Data Quality Check:**
 
 The final_dq_check.sql script performs a data quality check to ensure that each contract has sufficient data coverage, such as having at least 5 companies and 2 suppliers.
 
 Note- Handling future exchange rates introduces complexity in ensuring data consistency and requires robust ETL processes to manage daily updates and interpolations effectively. For this, we will have to set up the pipeline in such a way.
 
 
-Conclusion:
+**Conclusion:**
 
 This documentation covers the essential steps and components of the DE Case Study solution. By following the setup and mentioned data transformation processes, the initial data has been loaded into DuckDB, transformed, and aggregated to meet the specified requirements in case study. The solution also includes enhancements such as metadata coverage and handling exchange rates to ensure comprehensive and accurate data processing.
