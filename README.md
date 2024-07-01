@@ -93,21 +93,21 @@ DuckDB
 
 
 **Clone the repository:**
-
+```bash
 git clone https://github.com/DE-Case-Study.git
 cd DE-Case-Study
-
+```
 
 **Create a virtual environment:**
-
+```bash
 python -m venv venv
 source venv/bin/activate
-
+```
 
 **Install the required packages:**
-
+```bash
 pip install -r requirements.txt
-
+```
 
 **Set up DBT profile:**
 
@@ -115,10 +115,10 @@ Update the profiles.yml file.
 
 
 **Run DBT commands:**
-
+```bash
 dbt run
 dbt test
-
+```
 
 
 
