@@ -1,6 +1,6 @@
 {{ config(schema='staging') }}
 
-select
+SELECT
   created,
   d_id,
   origin_pid,
@@ -10,5 +10,5 @@ select
   company_id,
   supplier_id,
   equipment_id
-from
+FROM
   {{ ref('raw_datapoints_2') }}

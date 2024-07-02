@@ -1,6 +1,6 @@
 {{ config(schema='raw') }}
 
-select
+SELECT
   *
-from
-  read_csv_auto('/Users/Manasi/Downloads/de_case_study/DE_project/input_files/exchange_rates.csv', header=True)
+FROM
+  read_csv_auto('/Users/Downloads/de_case_study/DE_project/input_files/exchange_rates.csv', header=True)

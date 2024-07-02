@@ -11,7 +11,7 @@ WITH charges_in_usd AS (
       FROM {{ ref('stg_exchange_rates') }}
     ) er
   WHERE
-    c.currency = er.currency  -- Adjust join condition as per your data model
+    c.currency = er.currency
 ),
 aggregated_prices AS (
   SELECT
