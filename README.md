@@ -180,3 +180,45 @@ Note- Handling future exchange rates introduces complexity in ensuring data cons
 **Conclusion:**
 
 This documentation covers the essential steps and components of the DE Case Study solution. By following the setup and mentioned data transformation processes, the initial data has been loaded into DuckDB, transformed, and aggregated to meet the specified requirements in case study. The solution also includes enhancements such as metadata coverage and handling exchange rates to ensure comprehensive and accurate data processing.
+
+
+
+
+**Time Log**
+
+
+**Setup and Environment Configuration:**
+Installed required tools, set up project structure.
+Time Spent: 1 hours
+
+
+**Data Ingestion:**
+Loaded initial data into DuckDB.
+Time Spent: 2 hours
+
+
+**Creating Aggregated Prices Model:**
+Developed DBT models for daily regional aggregated prices.
+Time Spent: 3.5 hours
+
+
+**Implementing Enhancements:**
+Added metadata coverage checks and data quality validations.
+Time Spent: 3 hours
+
+
+**Handling Exchange Rates:**
+Implemented exchange rate conversions and interpolations.
+Time Spent: 3 hours
+
+
+**Testing and Validation:**
+Tested, validated, and debugged the pipeline.
+Time Spent: 2 hours
+
+
+**Documentation and Git Repository Setup:**
+Documented the solution and set up the Git repository.
+Time Spent: 2 hours
+
+**Total time spent** : 16.5hrs
